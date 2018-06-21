@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryCardCatalog", "LibraryCardCatalog\LibraryCardCatalog.csproj", "{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
