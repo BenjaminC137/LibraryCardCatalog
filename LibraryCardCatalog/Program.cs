@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace LibraryCardCatalog
 {
@@ -9,6 +10,9 @@ namespace LibraryCardCatalog
             Console.WriteLine("");
 
             //This is my first push since initial push
+
+            Books b1 = new Books("Dictionary", "Oxford", "Education", "0001");
+                
 
 
         }
