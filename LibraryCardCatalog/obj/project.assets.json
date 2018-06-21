@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/benjaminsalasek/Google Drive/VisualStudioProjects/LibraryCardCatalog/LibraryCardCatalog/LibraryCardCatalog.csproj",
+      "projectUniqueName": "/Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/LibraryCardCatalog.csproj",
       "projectName": "LibraryCardCatalog",
-      "projectPath": "/Users/benjaminsalasek/Google Drive/VisualStudioProjects/LibraryCardCatalog/LibraryCardCatalog/LibraryCardCatalog.csproj",
+      "projectPath": "/Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/LibraryCardCatalog.csproj",
       "packagesPath": "/Users/benjaminsalasek/.nuget/packages/",
-      "outputPath": "/Users/benjaminsalasek/Google Drive/VisualStudioProjects/LibraryCardCatalog/LibraryCardCatalog/obj",
+      "outputPath": "/Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
