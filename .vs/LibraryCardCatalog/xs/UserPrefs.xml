@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LibraryCardCatalog/Program.cs">
+    <Files>
+      <File FileName="LibraryCardCatalog/Program.cs~" Line="1" Column="1" />
+      <File FileName="LibraryCardCatalog/Program.cs" Line="13" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.LibraryCardCatalog PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
