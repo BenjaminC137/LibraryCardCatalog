@@ -13,6 +13,7 @@ namespace LibraryCardCatalog
             Console.WriteLine("Hello. Please enter a file name.");
 
             string fileName = Console.ReadLine();
+            fileName += ".xml";
 
             //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
 
@@ -23,6 +24,16 @@ namespace LibraryCardCatalog
             //string fullName = Path.GetFileName(fileName);
 
             string pathString = Path.Combine(path, fileName);
+
+            if(!File.Exists(pathString))
+            {
+            //create file   
+            }
+            else
+            {
+                Console.WriteLine("Filename: {0} already exists.", pathString);
+                Console.ReadLine();
+            }
 
             Console.WriteLine("Path to my file: {0}\n", pathString);
             Console.ReadLine();
