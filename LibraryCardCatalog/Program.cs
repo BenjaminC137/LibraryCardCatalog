@@ -14,7 +14,19 @@ namespace LibraryCardCatalog
 
             string fileName = Console.ReadLine();
 
-            File.Create(c:\LibraryCatalog\fileName.txt);
+            //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
+
+            //String path = String.Format(@"c:\LibraryCatalog\{0}.xml", fileName);
+            string path = @"c:\LibraryCatalog\";
+
+            Directory.CreateDirectory(path);
+            //string fullName = Path.GetFileName(fileName);
+
+            string pathString = Path.Combine(path, fileName);
+
+            Console.WriteLine("Path to my file: {0}\n", pathString);
+            Console.ReadLine();
+            //File.Create(c:\LibraryCatalog\fileName.txt);
 
             //Books b1 = new Books("Dictionary", "Oxford", "Education", "0001");
 
