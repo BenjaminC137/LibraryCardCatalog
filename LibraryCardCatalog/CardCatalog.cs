@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
-using System.Timers;
 using System.Threading;
 
 //serialization instructions: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file
@@ -15,6 +14,7 @@ namespace LibraryCardCatalog
 
         private string pathString = "";
         private Books catalog = null;
+        public List<Books> booksList = new List<Books>();
 
         public void CardCatalogMethod()
         {
@@ -56,7 +56,7 @@ namespace LibraryCardCatalog
                 string selectionPrompt = "Type '1' to list all books. \n" +
                     "Type '2' to add a book. \n" +
                     "Type '3' to save and exit.";
-                
+
                 Console.WriteLine(selectionPrompt);
                 string userSelection = Console.ReadLine();
 
@@ -65,7 +65,7 @@ namespace LibraryCardCatalog
                     //Console.WriteLine("Here are the books!");
                     ReadCatalog();
 
-                    Console.WriteLine("ISBN: {3} Title: {0}: Author: {1} Genre: {2}", catalog.Title, catalog.Author, catalog.Genre, catalog.ISBN);
+                    //Console.WriteLine("ISBN: {3} Title: {0}: Author: {1} Genre: {2}", catalog.Title, catalog.Author, catalog.Genre, catalog.ISBN);
                 }
 
                 if (userSelection == "2")
@@ -97,36 +97,52 @@ namespace LibraryCardCatalog
             Console.WriteLine("Enter Genre");
             string genreEntry = Console.ReadLine();
 
-            catalog = new Books
+            //catalog = new Books
+            //{
+            //    Title = titleEntry,
+            //    Author = authorEntry,
+            //    Genre = genreEntry,
+            //    ISBN = isbnEntry
+            //};
+            //booksList.Add(catalog);
+
+            //booksList.Add()
+
+            booksList.Add(new Books(titleEntry, authorEntry, genreEntry, isbnEntry));
+
+            Console.WriteLine();
+            foreach (var book in booksList)
             {
-                Title = titleEntry,
-                Author = authorEntry,
-                Genre = genreEntry,
-                ISBN = isbnEntry
-            };
+                Console.WriteLine("Title: {0} | Author: {1}", book.Title, book.Author);
+            }
+            Console.ReadLine();
+
+
             XmlSerializer writer =
-            new XmlSerializer(typeof(Books));
-            
+            new XmlSerializer(typeof(List<Books>));
+
             FileStream fileStream = File.Open(this.pathString, FileMode.OpenOrCreate);
 
-            writer.Serialize(fileStream, catalog);
+
+            writer.Serialize(fileStream, booksList);
             fileStream.Close();
             fileStream.Dispose();
 
         }
-        //foreach (var book in booksList)
-        //{
-        //    Console.WriteLine(book.Title);
-        //}
 
         public void ReadCatalog()
         {
-            XmlSerializer reader = new XmlSerializer(typeof(Books));
+            XmlSerializer reader = new XmlSerializer(typeof(List<Books>));
             StreamReader file = new StreamReader(pathString);
-            catalog = (Books)reader.Deserialize(file);
+            booksList = (List<Books>)reader.Deserialize(file);
 
             file.Close();
-            Console.WriteLine(catalog.Title);
+
+            foreach (var book in booksList)
+            {
+                Console.WriteLine("ISBN: {0}, Title: {1}, Author: {2}, Genre: {3}", 
+                                  book.ISBN, book.Title, book.Author, book.Genre);
+            }
         }
     }
 }
