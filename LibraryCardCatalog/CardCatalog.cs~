@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using System.IO;
 
 //serialization instructions: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file
 
@@ -10,8 +11,42 @@ namespace LibraryCardCatalog
     {
         List<Books> booksList = new List<Books>();
 
+        private string pathString = "";
+
         public void CardCatalogMethod()
         {
+
+            Console.WriteLine("Hello. Please enter a file name.");
+
+            string fileName = Console.ReadLine();
+            fileName += ".xml";
+
+            //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-create-a-file-or-folder
+
+            //String path = String.Format(@"c:\LibraryCatalog\{0}.xml", fileName);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+            Directory.CreateDirectory(path);
+            //string fullName = Path.GetFileName(fileName);
+
+            pathString = Path.Combine(path, fileName);
+
+            if (!File.Exists(pathString))
+            {
+                FileStream stream = File.Create(pathString);  //create file   
+                stream.Close();
+                stream.Dispose();
+            }
+            else
+            {
+                Console.WriteLine("Filename: {0} already exists.", pathString);
+                Console.ReadLine();
+            }
+
+            Console.WriteLine("Path to my file: {0}\n", pathString);
+            Console.ReadLine();
+
+
             bool exit = false;
             while (exit == false)
             {
@@ -57,19 +92,22 @@ namespace LibraryCardCatalog
             string genreEntry = Console.ReadLine();
 
 
-            Books catalog = new Books();
-            catalog.Title = titleEntry;
-            catalog.Author = authorEntry;
-            catalog.Genre = genreEntry;
-            catalog.ISBN = isbnEntry;
+            Books catalog = new Books
+            {
+                Title = titleEntry,
+                Author = authorEntry,
+                Genre = genreEntry,
+                ISBN = isbnEntry
+            };
             XmlSerializer writer =
             new XmlSerializer(typeof(Books));
+            
+            //var path = Program.p
+            FileStream fileStream = File.Open(this.pathString, FileMode.OpenOrCreate);
 
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//SerializationOverview.xml";
-            System.IO.FileStream file = System.IO.File.Create(path);
-
-            writer.Serialize(file, catalog);
-            file.Close();
+            writer.Serialize(fileStream, catalog);
+            fileStream.Close();
+            fileStream.Dispose();
 
         }
 
