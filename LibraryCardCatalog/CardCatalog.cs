@@ -39,15 +39,20 @@ namespace LibraryCardCatalog
                 FileStream stream = File.Create(pathString);  //create file   
                 stream.Close();
                 stream.Dispose();
+                Console.WriteLine("\nNew file created: {0}\nPress 'Return' to view options", pathString);
+                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("Filename: {0} already exists.", pathString);
+                LoadCatalog();
+                Console.WriteLine("\nExisting file found: {0}\nPress 'Return' to view options", pathString);
                 Console.ReadLine();
+                //Console.WriteLine("Filename: {0} already exists.", pathString);
+                //Console.ReadLine();
             }
 
-            Console.WriteLine("Path to my file: {0}\nPress 'Return' to view options", pathString);
-            Console.ReadLine();
+            //Console.WriteLine("Path to my file: {0}\nPress 'Return' to view options", pathString);
+            //Console.ReadLine();
 
 
             bool exit = false;
@@ -62,19 +67,24 @@ namespace LibraryCardCatalog
 
                 if (userSelection == "1")
                 {
+                    Console.WriteLine();
                     //Console.WriteLine("Here are the books!");
                     ReadCatalog();
 
+                    Console.WriteLine();
                     //Console.WriteLine("ISBN: {3} Title: {0}: Author: {1} Genre: {2}", catalog.Title, catalog.Author, catalog.Genre, catalog.ISBN);
                 }
 
                 if (userSelection == "2")
                 {
+                    Console.WriteLine();
                     AddBook();
+                    Console.WriteLine();
                 }
 
                 if (userSelection == "3")
                 {
+                    Console.WriteLine();
                     exit = true;
                     Console.WriteLine("exiting program...");
                     Thread.Sleep(1000);
@@ -110,12 +120,12 @@ namespace LibraryCardCatalog
 
             booksList.Add(new Books(titleEntry, authorEntry, genreEntry, isbnEntry));
 
-            Console.WriteLine();
-            foreach (var book in booksList)
-            {
-                Console.WriteLine("Title: {0} | Author: {1}", book.Title, book.Author);
-            }
-            Console.ReadLine();
+            //Console.WriteLine();
+            //foreach (var book in booksList)
+            //{
+            //    Console.WriteLine("Title: {0} | Author: {1}", book.Title, book.Author);
+            //}
+            //Console.ReadLine();
 
 
             XmlSerializer writer =
@@ -137,6 +147,7 @@ namespace LibraryCardCatalog
             booksList = (List<Books>)reader.Deserialize(file);
 
             file.Close();
+            file.Dispose();
 
             foreach (var book in booksList)
             {
@@ -144,5 +155,17 @@ namespace LibraryCardCatalog
                                   book.ISBN, book.Title, book.Author, book.Genre);
             }
         }
+
+        public void LoadCatalog()
+        {
+            XmlSerializer reader = new XmlSerializer(typeof(List<Books>));
+            StreamReader file = new StreamReader(pathString);
+            booksList = (List<Books>)reader.Deserialize(file);
+
+            file.Close();
+            file.Dispose();
+        }
+
+
     }
 }
