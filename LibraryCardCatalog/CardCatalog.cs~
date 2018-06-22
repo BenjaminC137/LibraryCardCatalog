@@ -42,7 +42,7 @@ namespace LibraryCardCatalog
             }
         }
 
-        void AddBook()
+        public void AddBook()
         {
             Console.WriteLine("Enter Book ISBN");
             string isbnEntry = Console.ReadLine();
@@ -56,16 +56,42 @@ namespace LibraryCardCatalog
             Console.WriteLine("Enter Genre");
             string genreEntry = Console.ReadLine();
 
-            booksList.Add(new Books(titleEntry, authorEntry, genreEntry, isbnEntry));
-          
 
-            foreach (var book in booksList)
-            {
-                Console.WriteLine(book.Title);
-            }
+            Books catalog = new Books();
+            catalog.Title = titleEntry;
+            catalog.Author = authorEntry;
+            catalog.Genre = genreEntry;
+            catalog.ISBN = isbnEntry;
+            XmlSerializer writer =
+            new XmlSerializer(typeof(Books));
+
+            var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "//SerializationOverview.xml";
+            System.IO.FileStream file = System.IO.File.Create(path);
+
+            writer.Serialize(file, catalog);
+            file.Close();
 
         }
 
-        private string _filename;
+        public static void WriteXML()
+        {
+
+
+        }
+
+        //booksList.Add(new Books(titleEntry, authorEntry, genreEntry, isbnEntry));
+
+
+
+
+        //foreach (var book in booksList)
+        //{
+        //    Console.WriteLine(book.Title);
+        //}
+
+
+
+
+        //private string _filename;
     }
 }
