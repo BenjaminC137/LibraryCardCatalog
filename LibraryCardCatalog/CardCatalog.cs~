@@ -18,7 +18,7 @@ namespace LibraryCardCatalog
 
         public void CardCatalogMethod()
         {
-
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Hello. Please enter a file name.");
 
             string fileName = Console.ReadLine();
@@ -58,6 +58,7 @@ namespace LibraryCardCatalog
             bool exit = false;
             while (exit == false)
             {
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 string selectionPrompt = "Type '1' to list all books. \n" +
                     "Type '2' to add a book. \n" +
                     "Type '3' to save and exit.";
@@ -95,6 +96,7 @@ namespace LibraryCardCatalog
 
         public void AddBook()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Enter Book ISBN");
             string isbnEntry = Console.ReadLine();
 
@@ -149,6 +151,7 @@ namespace LibraryCardCatalog
             file.Close();
             file.Dispose();
 
+            Console.ForegroundColor = ConsoleColor.Blue;
             foreach (var book in booksList)
             {
                 Console.WriteLine("ISBN: {0}, Title: {1}, Author: {2}, Genre: {3}", 
