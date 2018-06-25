@@ -152,11 +152,14 @@ namespace LibraryCardCatalog
             file.Dispose();
 
             Console.ForegroundColor = ConsoleColor.Blue;
+            Console.BackgroundColor = ConsoleColor.Green;
             foreach (var book in booksList)
             {
                 Console.WriteLine("ISBN: {0}, Title: {1}, Author: {2}, Genre: {3}", 
                                   book.ISBN, book.Title, book.Author, book.Genre);
             }
+            Console.BackgroundColor = ConsoleColor.Black;
+
         }
 
         public void LoadCatalog()
