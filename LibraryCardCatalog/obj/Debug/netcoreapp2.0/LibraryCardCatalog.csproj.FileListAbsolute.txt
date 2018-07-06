@@ -8,3 +8,4 @@
 /Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/obj/Debug/netcoreapp2.0/LibraryCardCatalog.AssemblyInfo.cs
 /Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/obj/Debug/netcoreapp2.0/LibraryCardCatalog.dll
 /Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/obj/Debug/netcoreapp2.0/LibraryCardCatalog.pdb
+/Users/benjaminsalasek/Documents/GitHub/LibraryCardCatalog/LibraryCardCatalog/obj/Debug/netcoreapp2.0/LibraryCardCatalog.csprojResolveAssemblyReference.cache

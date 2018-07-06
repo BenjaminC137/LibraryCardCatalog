@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{7D72AADB-7C74-4314-9B57-D8C0CB7C47DA}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="LibraryCardCatalog/CardCatalog.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LibraryCardCatalog Status">
     <Files>
-      <File FileName="LibraryCardCatalog/Program.cs" Line="18" Column="36" />
-      <File FileName="LibraryCardCatalog/CardCatalog.cs" Line="160" Column="14" />
+      <File FileName="LibraryCardCatalog/Program.cs" Line="13" Column="1" />
+      <File FileName="LibraryCardCatalog/CardCatalog.cs" Line="159" Column="75" />
       <File FileName="LibraryCardCatalog/Books.cs" Line="22" Column="10" />
+      <File FileName="LibraryCardCatalog Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

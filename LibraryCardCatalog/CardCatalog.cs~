@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.IO;
 using System.Threading;
+using System.Linq;
 
 //serialization instructions: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/how-to-write-object-data-to-an-xml-file
 
@@ -60,8 +61,8 @@ namespace LibraryCardCatalog
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 string selectionPrompt = "Type '1' to list all books. \n" +
-                    "Type '2' to add a book. \n" +
-                    "Type '3' to save and exit.";
+                                         "Type '2' to add a book. \n" +
+                                         "Type '3' to save and exit.";
 
                 Console.WriteLine(selectionPrompt);
                 string userSelection = Console.ReadLine();
@@ -155,10 +156,15 @@ namespace LibraryCardCatalog
             Console.BackgroundColor = ConsoleColor.Green;
             foreach (var book in booksList)
             {
-                Console.WriteLine("ISBN: {0}, Title: {1}, Author: {2}, Genre: {3}", 
+                Console.WriteLine("ISBN: {0}\t Title: {1}\t Author: {2}\t Genre: {3}", 
                                   book.ISBN, book.Title, book.Author, book.Genre);
             }
             Console.BackgroundColor = ConsoleColor.Black;
+
+            var descendingBooks = booksList.OrderByDescending(p => p.ISBN);
+            foreach (var book in descendingBooks){
+                Console.WriteLine("ISBN:{0} \t Author: {1}", book.ISBN, book.Author);
+            }
 
         }
 
